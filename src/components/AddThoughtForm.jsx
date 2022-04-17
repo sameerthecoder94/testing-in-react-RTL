@@ -12,25 +12,27 @@ export function AddThoughtForm({ addThought }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (text.length) {
-      const thought = {
-        id: generateId(),
-        text: text,
-        expiresAt: getNewExpirationTime(),
-      };
-      addThought(thought);
-      setText('');
+      setTimeout(() => {
+        const thought = {
+          id: generateId(),
+          text: text,
+          expiresAt: getNewExpirationTime(),
+        };
+        addThought(thought);
+        setText('');
+      }, 500);
     }
   };
   return (
     <form onSubmit={handleSubmit} className='AddThoughtForm'>
       <input
+        role='input'
         type='text'
-        aria-label="What's on your mind?"
         placeholder="What's on your mind?"
         value={text}
         onChange={handleTextChange}
       />
-      <input type='submit' value='Add' />
+      <input role='submit' type='submit' value='Add' />
     </form>
   );
 }
