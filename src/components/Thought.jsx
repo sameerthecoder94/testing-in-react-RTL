@@ -22,7 +22,7 @@ export const Thought = ({ thought, removeThought }) => {
         className='remove-button'
         onClick={handleRemoveClick}
       >
-        &times;
+        x
       </button>
       <div>{thought.text}</div>
     </li>
